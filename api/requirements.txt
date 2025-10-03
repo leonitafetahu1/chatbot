@@ -1,0 +1,9 @@
+sqlalchemy[asyncpg]
+fastapi
+uvicorn
+uvloop
+orjson
+psycopg2-binary
+python-jose[cryptography]
+httpx
+redis

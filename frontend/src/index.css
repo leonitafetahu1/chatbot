@@ -1,0 +1,46 @@
+/* 1️⃣ Tailwind directives (must be at the top) */
+@import "tailwindcss";
+
+/*@tailwind base;*/
+@tailwind utilities;
+
+/* 2️⃣ Custom global font and base styles */
+html {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: white; /* default bg for light mode */
+  color: #213547; /* default text for light mode */
+}
+
+/* 3️⃣ Links */
+a {
+  font-weight: 500;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* 4️⃣ Headings */
+h1 {
+  @apply text-3xl md:text-5xl font-bold leading-tight;
+}
+
+/* 5️⃣ Buttons (optional base style) */
+button {
+  @apply rounded-lg border border-transparent px-4 py-2 text-base font-medium cursor-pointer transition-colors;
+}
+button:hover {
+  @apply border-blue-500;
+}

@@ -1,0 +1,41 @@
+networks:
+  mrava-net:
+    driver: bridge
+
+
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: fastapi
+    env_file:
+      - .env
+    ports:
+      - "9090:9090"
+    networks:
+      - mrava-net
+    volumes:
+      - ./api:/api
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: server-dev.Dockerfile # dev server frontend
+      # dockerfile: server-prod.Dockerfile # dev server frontend
+    container_name: frontend
+    ports: 
+      # - "8080:80" # prod
+      - "8080:8080" # dev
+    networks:
+      - mrava-net
+    volumes:
+      - ./frontend/src:/app/src
+      - /app/node_modules  # Prevents issues with host and container dependencies
+
+  redis:
+    image: redis:8.0.2-alpine
+    container_name: redis
+    command: [ "redis-server", "--requirepass", "${REDIS_PASSWORD}" ]
+    networks:
+      - mrava-net
