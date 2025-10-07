@@ -19,8 +19,20 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: white; /* default bg for light mode */
-  color: #213547; /* default text for light mode */
+ 
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.no-focus-outline:focus {
+  outline: none !important;
 }
 
 /* 3️⃣ Links */
@@ -40,7 +52,4 @@ h1 {
 /* 5️⃣ Buttons (optional base style) */
 button {
   @apply rounded-lg border border-transparent px-4 py-2 text-base font-medium cursor-pointer transition-colors;
-}
-button:hover {
-  @apply border-blue-500;
 }
